@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app"formApp">
 
 <head>
     <meta charset="UTF-8">
@@ -14,8 +14,8 @@
         <p>Welcome! please select the toggle below to toggle between disabled and active states</p>
     </div>
     <br />
-    <div align="center" ng-app="formApp">
-        <form novalidate class="css-form">
+    <div align="center">
+        <form novalidate class="css-form" ng-controller="FormCtrl">
             Fistname:
             <input type="text" ng-disabled="formOptions.DisableForm" ng-model="formData.firstname" />
             <br /> Lastname:
@@ -32,7 +32,7 @@
 </body>
 
 <script>
-var formApp = angular.module('myModule', []).controller('MyFormCtrl', ['$scope', function($scope) {
+var formApp = angular.module('formApp', []).controller('FormCtrl', ['$scope', function($scope) {
     $scope.formData = {
         'firstname': 'steve',
         'lastname': 'kessler',
