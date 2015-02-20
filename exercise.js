@@ -18,7 +18,6 @@ function queryStringParsing() {
             processedString = processedString.split('=');
             result[processedString[0]] = decodeURIComponent(processedString[1] || '');
         });
-
         return JSON.parse(JSON.stringify(result));
     }
 
@@ -27,9 +26,9 @@ function queryStringParsing() {
         var expire = new Date();
         Days = 3;
         var cookieName = 'jsTest';
-        var cookieStr = result;
+        var cookieStr = JSON.stringify(result);
         expire.setTime(today.getTime() + 3600000 * 24 * Days);
-        document.cookie = cookieName + '=' + escape(cookieStr) + ';expires=' + expire.toGMTString();
+        document.cookie = cookieName + '=' + (cookieStr) + ';expires=' + expire.toGMTString();
     }
 
     // outputting the data for testing/validation
