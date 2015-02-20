@@ -31,6 +31,9 @@ function queryStringParsing() {
         document.cookie = cookieName + '=' + (cookieStr) + ';expires=' + expire.toGMTString();
     }
 
+    // adding string to local storage 
+    localStorage['jsTestStorage'] = JSON.stringify(result);
+
     // outputting the data for testing/validation
     var finalizedString = convertToJSON();
     var initiateCookie = SetCookie();
