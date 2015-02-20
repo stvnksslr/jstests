@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Sample String
-http://localhost:8080/index.html?ID=1&FirstName=Steven&LastName=Kessler&phone=111111
- -->
 
 <head>
     <meta charset="UTF-8">
-    <title>Coding Exercise 1</title>
+    <title>Welcome!</title>
     <link rel="stylesheet" type="text/css" href="jstest.css">
-    <script type="text/javascript" src="jstest.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="jstest.js" type="text/javascript" charset="utf-8" async defer></script>
+
 </head>
 
 <body>
     <div id="mainContent">
-        <p>Welcome please check the string below, and the cookie thats been loaded into your browser</p>
+        <p>Welcome! please select the toggle below to toggle between disabled and active states</p>
     </div>
-    <br/>
+    <br />
+    <div ng-controller="ExampleController" align="center">
+        <form novalidate class="css-form">
+            Fistname:
+            <input type="text" ng-model="user.fname" ng-readonly="checked" required value="ex. Steve" />
+            <br /> Lastname:
+            <input type="email" ng-model="user.lname" ng-readonly="checked" required value="ex. Kessler" />
+            <br /> Phone-Number:
+            <input type="text" ng-model="user.pnumber" ng-readonly="checked" required value="ex. 1111111" />
+            <br /> E-mail:
+            <input type="email" ng-model="user.email" ng-readonly="checked" required value="ex. stvnksslr@gmail.com" />
+            <br /> Check me to make text readonly:
+            <input type="checkbox" ng-model="checked">
+            <br/>
+        </form>
+    </div>
+    </div>
 </body>
 
 </html>
