@@ -2,23 +2,23 @@
 
 
 function storeValues() {
-    var arr = [{}];
+    var jsonArray = [{}];
     var jsonString;
 
-    var forms = document.forms;
-    for (var i = 0; i < forms.length; i++) {
-        if (typeof(arr[0][forms[i].id]) == 'undefined') {
-            arr[0][forms[i].id] = [];
+    var formSubmission = document.forms;
+    for (var i = 0; i < formSubmission.length; i++) {
+        if (typeof(jsonArray[0][formSubmission[i].id]) == 'undefined') {
+            jsonArray[0][formSubmission[i].id] = [];
         }
-        for (var ii = 0; ii < forms[i].elements.length; ii++) {
-            arr[0][forms[i].id].push(forms[i].elements[ii].value);
+        for (var ii = 0; ii < formSubmission[i].elements.length; ii++) {
+            jsonArray[0][formSubmission[i].id].push(formSubmission[i].elements[ii].value);
         }
     }
 
-    jsonString = JSON.stringify(arr);
+    jsonString = JSON.stringify(jsonArray);
     console.log(jsonString);
 }
 
 window.onload = function() {
-    document.getElementById("submitJSON").onclick = storeValues;
+    document.getElementById('submitJSON').onclick = storeValues;
 };
