@@ -1,21 +1,14 @@
- angular.module('formExample', [])
-     .controller('ExampleController', ['$scope', function($scope) {
-         $scope.master = {};
+'use strict';
 
-         $scope.update = function(user) {
-             $scope.master = angular.copy(user);
-         };
+var formApp = angular.module('myModule', []).controller('MyFormCtrl', ['$scope', function($scope) {
+    $scope.formData = {
+        'firstname': 'steve',
+        'lastname': 'kessler',
+        'phonenumber': '123-4567',
+        'email': 'stvnksslr@gmaial.com'
+    };
+    $scope.formOptions = {
+        disableForm: true
+    };
+}]);
 
-         $scope.reset = function() {
-             $scope.user = angular.copy($scope.master);
-         };
-
-         $scope.reset();
-     }]);
-
-
- it('should toggle readonly attr', function() {
-     expect(element(by.css('[type="text"]')).getAttribute('readonly')).toBeFalsy();
-     element(by.model('checked')).click();
-     expect(element(by.css('[type="text"]')).getAttribute('readonly')).toBeTruthy();
- });
