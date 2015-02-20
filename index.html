@@ -30,7 +30,11 @@
     </div>
 </body>
 <script>
-var formApp = angular.module('formApp', []).controller('FormCtrl', ['$scope', function($scope) {
+'use strict';
+
+var formApp = angular.module('myModule', []);
+
+formApp.controller('MyFormCtrl', ['$scope', function($scope) {
     $scope.formData = {
         'firstname': 'steve',
         'lastname': 'kessler',
@@ -39,6 +43,21 @@ var formApp = angular.module('formApp', []).controller('FormCtrl', ['$scope', fu
     };
     $scope.formOptions = {
         disableForm: true
+    };
+}]);
+
+formApp.controller('formToggleCtrl', ['$scope', function($scope) {
+
+    $scope.toggleDisableForm = function() {
+        $scope.formOptions.DisableForm = (!$scope.formOptions.DisableForm);
+    };
+}]);
+
+formApp.directive('formToggle', [function() {
+    return {
+        scope: true,
+        controller: 'formToggleCtrl',
+        template: '<button ng-click="toggleDisableForm()"> Please click here to toggle directive </button>',
     };
 }]);
 </script>
