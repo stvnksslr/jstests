@@ -27,6 +27,7 @@
             <form-toggle></form-toggle>
             <br/>
         </form>
+
     </div>
 </body>
 <script>
@@ -34,6 +35,7 @@
 
 var formApp = angular.module('formApp', []);
 
+// setting default information to be pulled
 formApp.controller('MyFormController', ['$scope', function($scope) {
     $scope.formData = {
         'firstname': 'steve',
@@ -50,6 +52,10 @@ formApp.controller('FormToggleController', ['$scope', function($scope) {
 
     $scope.toggleDisableForm = function() {
         $scope.formOptions.DisableForm = (!$scope.formOptions.DisableForm);
+        if (formOptions.disabled = false) {
+            $scope.previousFormData = angular.copy($scope.formData);
+        }
+
     };
 }]);
 
