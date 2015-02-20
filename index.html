@@ -24,7 +24,7 @@
             <br /> E-mail:
             <input type="email" ng-disabled="formOptions.DisableForm" ng-model="formData.email" />
             <br />
-            <button ng-click="toggleDisableForm()"> Click me to make text readonly </button>
+            <form-toggle></form-toggle>
             <br/>
         </form>
     </div>
@@ -57,7 +57,7 @@ formApp.directive('formToggle', [function() {
     return {
         scope: true,
         controller: 'FormToggleController',
-        template: '<button ng-click="toggleDisableForm()"> foo </button>',
+        template: '<button ng-click="toggleDisableForm()"> Click here to lock/unlock fields </button>',
     };
 }]);
 </script>
