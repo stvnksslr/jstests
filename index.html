@@ -14,7 +14,7 @@
     </div>
     <br />
     <div align="center">
-        <form novalidate class="css-form" ng-controller="FormCtrl">
+        <form novalidate class="css-form" ng-controller="MyFormController">
             Fistname:
             <input type="text" ng-disabled="formOptions.DisableForm" ng-model="formData.firstname" />
             <br /> Lastname:
@@ -24,7 +24,7 @@
             <br /> E-mail:
             <input type="email" ng-disabled="formOptions.DisableForm" ng-model="formData.email" />
             <br />
-            <button ng-click=""> Click me to make text readonly </button>
+            <button ng-click="toggleDisableForm()"> Click me to make text readonly </button>
             <br/>
         </form>
     </div>
@@ -32,21 +32,21 @@
 <script>
 'use strict';
 
-var formApp = angular.module('myModule', []);
+var formApp = angular.module('formApp', []);
 
-formApp.controller('MyFormCtrl', ['$scope', function($scope) {
+formApp.controller('MyFormController', ['$scope', function($scope) {
     $scope.formData = {
         'firstname': 'steve',
         'lastname': 'kessler',
         'phonenumber': '123-4567',
-        'email': 'stvnksslr@gmaial.com'
+        'email': 'stvnksslr@gmail.com'
     };
     $scope.formOptions = {
         disableForm: true
     };
 }]);
 
-formApp.controller('formToggleCtrl', ['$scope', function($scope) {
+formApp.controller('FormToggleController', ['$scope', function($scope) {
 
     $scope.toggleDisableForm = function() {
         $scope.formOptions.DisableForm = (!$scope.formOptions.DisableForm);
@@ -56,8 +56,8 @@ formApp.controller('formToggleCtrl', ['$scope', function($scope) {
 formApp.directive('formToggle', [function() {
     return {
         scope: true,
-        controller: 'formToggleCtrl',
-        template: '<button ng-click="toggleDisableForm()"> Please click here to toggle directive </button>',
+        controller: 'FormToggleController',
+        template: '<button ng-click="toggleDisableForm()"> foo </button>',
     };
 }]);
 </script>
