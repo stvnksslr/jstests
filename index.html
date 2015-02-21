@@ -6,6 +6,7 @@
     <title>Welcome!</title>
     <link rel="stylesheet" type="text/css" href="jstest.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="jstest.js"></script>
 </head>
 
 <body>
@@ -16,56 +17,20 @@
     <div align="center">
         <form novalidate class="css-form" ng-controller="MyFormController">
             Fistname:
-            <input type="text" ng-disabled="formOptions.DisableForm" ng-model="formData.firstname" />
+            <input type="text" ng-disabled="formOptions.disableForm" ng-model="formData.firstname" />
             <br /> Lastname:
-            <input type="email" ng-disabled="formOptions.DisableForm" ng-model="formData.lastname" />
+            <input type="text" ng-disabled="formOptions.disableForm" ng-model="formData.lastname" />
             <br /> Phone-Number:
-            <input type="text" ng-disabled="formOptions.DisableForm" ng-model="formData.phonenumber" />
+            <input type="text" ng-disabled="formOptions.disableForm" ng-model="formData.phonenumber" />
             <br /> E-mail:
-            <input type="email" ng-disabled="formOptions.DisableForm" ng-model="formData.email" />
+            <input type="email" ng-disabled="formOptions.disableForm" ng-model="formData.email" />
             <br />
+            <button ng-show="showSubmit">Submit!</button>
             <form-toggle></form-toggle>
             <br/>
         </form>
 
     </div>
 </body>
-<script>
-'use strict';
-
-var formApp = angular.module('formApp', []);
-
-// setting default information to be pulled
-formApp.controller('MyFormController', ['$scope', function($scope) {
-    $scope.formData = {
-        'firstname': 'steve',
-        'lastname': 'kessler',
-        'phonenumber': '123-4567',
-        'email': 'stvnksslr@gmail.com'
-    };
-    $scope.formOptions = {
-        disableForm: true
-    };
-}]);
-
-formApp.controller('FormToggleController', ['$scope', function($scope) {
-
-    $scope.toggleDisableForm = function() {
-        $scope.formOptions.DisableForm = (!$scope.formOptions.DisableForm);
-        if (formOptions.disabled = false) {
-            $scope.previousFormData = angular.copy($scope.formData);
-        }
-
-    };
-}]);
-
-formApp.directive('formToggle', [function() {
-    return {
-        scope: true,
-        controller: 'FormToggleController',
-        template: '<button ng-click="toggleDisableForm()"> Click here to lock/unlock fields </button>',
-    };
-}]);
-</script>
 
 </html>
